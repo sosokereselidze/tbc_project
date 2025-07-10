@@ -1,0 +1,78 @@
+/* *{
+    margin: 0;
+    padding: 0;
+} */
+
+.registration-block{
+    background-color: #79cb81;
+    border: 2px solid black;
+    padding: 2px;
+    border-radius: 30px;
+    border: none;   
+    
+}   
+
+.login, .sign-up{
+    font-weight: 700;
+    border: none;
+    color: black;
+}
+
+.login:hover, .sign-up:hover{
+    color: white;
+    background-color: #79cb81;
+}
+
+.header{
+    background-color: #b7eca3;
+}
+
+.search{
+    border-radius: 10px;
+
+}
+
+.search-input{
+    font-size: 10px;
+}
+
+.navigation{
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.shopping-cart, .wishlist-div{
+    background-color: #328E6E;
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+}
+
+.shopping-cart:hover, .wishlist-div:hover{
+    background-color: #41ba8f;
+}
+
+.wishlist-div{
+    width: 40px;
+}
+
+.wishlist-div i{
+    margin-top: 5px;
+}
+
+.terralux-image{
+    height: 120px;
+}
+
+.terralux-logo{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
