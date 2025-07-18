@@ -79,7 +79,7 @@ def sign_up():
             return redirect(url_for("index"))
 
     return render_template("sign-up.html", form=form)
-@app.route("/index")
+@app.route("/home")
 @login_required
 def index():
     products = Product.query.all()

@@ -42,18 +42,16 @@
             </div>
         </div>
 
-        <!-- Right Logo -->
         <div class="col-md-2 text-center">
             <a href="https://tbcbank.ge/ka" target="_blank"><img src="./static/images/tbc.png" alt="TBC Logo Left" class="img-fluid"></a>
         </div>
     </div>
 
-    <!-- Row 2: Product Grid -->
-    <div class="container-md second_div">
+    <div class="container-md second_div ">
         <div class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
             {% for product in products %}
             <div class="col">
-                <div class="card h-100 shadow-sm border-0">
+                <div class="card h-100 shadow border-0">
                     <div style="width: 100%; aspect-ratio: 1 / 1; overflow: hidden;">
                         <img src="{{ product.image_url }}" class="card-img-top"
                             style="width: 100%; height: 100%; object-fit: cover;">
