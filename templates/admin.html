@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Panel{% endblock %}
+
+{% block content %}
+<div class="container mt-5 card shadow p-4 bg-light">
+    <h2 class="text-center">Admin Panel</h2>
+    <p class="text-center text-success">You are the admin</p>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-info text-center">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Add Product Form -->
+    <div class="card p-4 mb-4">
+        <h4>Add New Product</h4>
+        <!-- ✅ FIXED: enctype added below -->
+        <form method="POST" action="{{ url_for('admin_panel') }}" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="name">Product Name</label>
+                <input name="name" type="text" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="image">Image</label>
+                <input type="file" name="image" accept="image/*" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="price">Price</label>
+                <input name="price" type="number" step="0.01" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success">Add Product</button>
+        </form>
+    </div>
+
+    <!-- Products List -->
+    <h4>Available Products</h4>
+    <div class="row">
+        {% for product in products %}
+            <div class="col-md-4 col-sm-6 mb-4 products_img_div">
+                <div class="card h-100 shadow-sm border-0">
+                    <div style="width: 100%; aspect-ratio: 1 / 1; overflow: hidden;">
+                        <img src="{{ product.image_url }}"
+                             class="card-img-top rounded">
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">${{ product.price }}</p>
+                        <form method="POST" action="{{ url_for('delete_product', product_id=product.id) }}" style="display: inline;">
+                            <button class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                        <a href="{{ url_for('edit_product', product_id=product.id) }}" class="btn btn-primary btn-sm ms-2">Edit</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

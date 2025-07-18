@@ -1,0 +1,118 @@
+<!-- <header class="p-3 text-white header">
+    <div class="container base-container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <div class="terralux-logo">
+                <a href="/"><img src="./static/images/terralux-logo.png" alt="" class="terralux-image"></a>
+            </div>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0 ms-5 navigation">
+                <li><a href="/" class="nav-link px-2">Home</a></li>
+                <li><a href="/products" class="nav-link px-2">Products</a></li>
+                <li><a href="/about" class="nav-link px-2">About</a></li>
+                <li><a href="/wishlist" class="nav-link px-2">Wishlist</a></li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 search-input">
+                <input type="search" class="form-control form-control-dark search" placeholder="Search for products"
+                    aria-label="Search">
+            </form>
+
+            <div class="wishlist-div me-3">
+                <i class="bi bi-heart fs-4"></i>
+            </div>
+            {% if current_user.is_authenticated %}
+            <div class="text-end me-3 user-info-block px-1 py-2 login-user">
+                <i class="bi bi-person human-logo"></i>
+                <span class="user-name">{{ current_user.username }}</span>
+                <a href="{{ url_for('logout') }}" class="btn btn-sm btn-outline-dark ms-3 logout-btn">Logout</a>
+            </div>
+            {% else %}
+            <div class="text-end me-3 registration-block">
+                <a href="/login"><button type="button"
+                        class="btn btn-outline-light me-2 rounded-pill login">Login</button></a>
+                <a href="/sign-up"><button type="button"
+                        class="btn btn-outline-light sign-up rounded-pill sign-up">Sign-up</button></a>
+            </div>
+            {% endif %}
+
+
+            <div class="text-end shopping-cart">
+                <i class="bi bi-cart2 fs-4"></i>
+                <span class="fw-bold">0,00 $</span>
+            </div>
+        </div>
+    </div>
+</header> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="p-3 text-white header">
+    <div class="container base-container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+            <!-- Logo -->
+            <div class="terralux-logo">
+                <a href="/"><img src="{{ url_for('static', filename='images/terralux-logo.png') }}" alt="Logo" class="terralux-image"></a>
+            </div>
+
+            <!-- Navigation -->
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0 ms-5 navigation">
+                <li><a href="/" class="nav-link px-2">Home</a></li>
+                <li><a href="/products" class="nav-link px-2">Products</a></li>
+                <li><a href="/about" class="nav-link px-2">About</a></li>
+                <li><a href="/wishlist" class="nav-link px-2">Wishlist</a></li>
+            </ul>
+
+            <!-- Search -->
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 search-input">
+                <input type="search" class="form-control form-control-dark search" placeholder="Search for products" aria-label="Search">
+            </form>
+
+            <!-- Wishlist Icon -->
+            <div class="wishlist-div me-3">
+                <i class="bi bi-heart fs-4"></i>
+            </div>
+
+            <!-- User Auth Display -->
+            {% if current_user.is_authenticated %}
+            <div class="text-end me-3 user-info-block px-1 py-2 login-user">
+                <div class="d-flex username-div">
+                    <i class="bi bi-person human-logo me-2 fs-5 one"></i>
+                    <span class="user-name fw-bold me-3 one">{{ current_user.username }}</span>
+                </div>
+               
+                <div>
+                    <a href="{{ url_for('logout') }}" class="btn btn-sm btn-outline-dark rounded-pill logout-btn">Logout</a>
+                </div>
+            </div>
+            {% else %}
+            <div class="text-end me-3 registration-block d-flex align-items-center">
+                <a href="/login">
+                    <button type="button" class="btn btn-outline-light me-2 rounded-pill login">Login</button>
+                </a>
+                <a href="/sign-up">
+                    <button type="button" class="btn btn-outline-light rounded-pill sign-up">Sign-up</button>
+                </a>
+            </div>
+            {% endif %}
+
+            <!-- Cart -->
+            <div class="text-end shopping-cart">
+                <i class="bi bi-cart2 fs-4"></i>
+                <span class="fw-bold">0,00 $</span>
+            </div>
+
+        </div>
+    </div>
+</header>
